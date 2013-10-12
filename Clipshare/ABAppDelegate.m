@@ -11,6 +11,11 @@
 static const NSInteger MaxVisibleItems = 10;
 static const NSInteger MaxVisibleChars = 32;
 
+#ifndef DEBUG
+#undef NSLog
+#define NSLog(args, ...)
+#endif
+
 @interface ABAppDelegate ()
 
 @property (weak, nonatomic) IBOutlet NSMenu *menu;
