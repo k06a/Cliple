@@ -44,29 +44,34 @@ static const NSInteger MaxVisibleChars = 32;
 {
     for (int i = 0; i < self.menu.itemArray.count-2; i++)
     {
+        NSDate * time = self.times[i];
+        NSString * text = self.texts[i];
         NSMenuItem * menuItem = self.menu.itemArray[i];
-        NSTimeInterval time = MAX(0,[[NSDate date] timeIntervalSinceDate:self.times[i]]);
+        
         NSString * timeStr = nil;
-        if (time < 60)
-            timeStr = [NSString stringWithFormat:@"%ds",(int)(time)];
-        else if (time < 60*60)
-            timeStr = [NSString stringWithFormat:@"%dm",(int)(time/60)];
-        else if (time < 60*60*24)
-            timeStr = [NSString stringWithFormat:@"%dh",(int)(time/60/60)];
-        else if (time < 60*60*24*7)
-            timeStr = [NSString stringWithFormat:@"%dd",(int)(time/60/60/24)];
-        else if (time < 60*60*24*365.75)
-            timeStr = [NSString stringWithFormat:@"%dw",(int)(time/60/60/24/7)];
-        else if (time < 60*60*24*365.75*3)
-            timeStr = [NSString stringWithFormat:@"%dM",(int)(time/60/60/24/30.5)];
-        else if (time < 60*60*24*365.75*100)
-            timeStr = [NSString stringWithFormat:@"%dy",(int)(time/60/60/24/365.75)];
+        NSTimeInterval secs = MAX(0,[[NSDate date] timeIntervalSinceDate:time]);
+        if (secs < 60)
+            timeStr = [NSString stringWithFormat:@"%ds",(int)(secs)];
+        else if (secs < 60*60)
+            timeStr = [NSString stringWithFormat:@"%dm",(int)(secs/60)];
+        else if (secs < 60*60*24)
+            timeStr = [NSString stringWithFormat:@"%dh",(int)(secs/60/60)];
+        else if (secs < 60*60*24*7)
+            timeStr = [NSString stringWithFormat:@"%dd",(int)(secs/60/60/24)];
+        else if (secs < 60*60*24*365.75)
+            timeStr = [NSString stringWithFormat:@"%dw",(int)(secs/60/60/24/7)];
+        else if (secs < 60*60*24*365.75*3)
+            timeStr = [NSString stringWithFormat:@"%dM",(int)(secs/60/60/24/30.5)];
+        else if (secs < 60*60*24*365.75*100)
+            timeStr = [NSString stringWithFormat:@"%dy",(int)(secs/60/60/24/365.75)];
         else
-            timeStr = @"";
+            timeStr = @"..";
         
-        menuItem.title = [NSString stringWithFormat:@"(%@) \"%@%@\"",timeStr,[self.texts[i] substringToIndex:MIN(MaxVisibleChars,[self.texts[i] length])],([self.texts[i] length] <= MaxVisibleChars)?@"":@"..."];
-        
-        [self.menu.itemArray[i] setState:(i == self.selectedIndex) ? NSOnState : NSOffState];
+        menuItem.title = [NSString stringWithFormat:@"(%@) \"%@%@\"", timeStr,
+                          [text substringToIndex:MIN(MaxVisibleChars,text.length)],
+                          (text.length <= MaxVisibleChars) ? @"" : @"..."];
+        menuItem.state = (i == self.selectedIndex) ? NSOnState : NSOffState;
+        menuItem.keyEquivalent = [@(i+1) description];
     }
 }
 
@@ -76,28 +81,43 @@ static const NSInteger MaxVisibleChars = 32;
     NSPasteboardItem * pboardItem = [[pboard pasteboardItems] lastObject];
     NSString * text = [pboardItem stringForType:NSPasteboardTypeString];
     NSInteger index = [self.texts indexOfObject:text];
+    
+    // Not text in clipboard or data were copied before
     if (!text || index != NSNotFound)
     {
         self.selectedIndex = MAX(0,index);
         [self updateItemTitlesAndStates];
         return;
     }
+    
+    // Remove last item until MaxVisibleItems left
+    while (self.menu.itemArray.count > MaxVisibleItems+2)
+    {
+        [self.menu removeItemAtIndex:self.menu.itemArray.count-3];
+        [self.texts removeLastObject];
+        [self.times removeLastObject];
+    }
+    
+    // Adding new item
+    NSMenuItem * menuItem = [[NSMenuItem alloc] initWithTitle:@"" action:@selector(menuItemSelect:) keyEquivalent:@""];
+    [self.menu insertItem:menuItem atIndex:0];
     [self.texts insertObject:text atIndex:0];
     [self.times insertObject:[NSDate date] atIndex:0];
     
-    if (self.menu.itemArray.count > MaxVisibleItems+2)
-        [self.menu removeItemAtIndex:self.menu.itemArray.count-3];
-    NSMenuItem * menuItem = [[NSMenuItem alloc] initWithTitle:@"" action:@selector(menuItemSelect:) keyEquivalent:@""];
-    [self.menu insertItem:menuItem atIndex:0];
-    
     self.selectedIndex = 0;
     [self updateItemTitlesAndStates];
-    
-    NSLog(@"Fire! %@", text);
+    NSLog(@"Added text: %@", text);
 }
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
+    // Configure GUI
+    self.statusBar = [[NSStatusBar systemStatusBar] statusItemWithLength:NSVariableStatusItemLength];
+    self.statusBar.title = @"CS";
+    self.statusBar.menu = self.menu;
+    self.statusBar.highlightMode = YES;
+    
+    // Load saved defaults
     NSUserDefaults * defs = [NSUserDefaults standardUserDefaults];
     self.texts = [defs objectForKey:@"texts"] ?: [NSMutableArray array];
     self.times = [defs objectForKey:@"times"] ?: [NSMutableArray array];
@@ -109,11 +129,7 @@ static const NSInteger MaxVisibleChars = 32;
     }
     [self timerFire:nil];
     
-    self.statusBar = [[NSStatusBar systemStatusBar] statusItemWithLength:NSVariableStatusItemLength];
-    self.statusBar.title = @"CS";
-    self.statusBar.menu = self.menu;
-    self.statusBar.highlightMode = YES;
-    
+    // Configure timer
     NSTimer * timer = [NSTimer timerWithTimeInterval:0.5 target:self selector:@selector(timerFire:) userInfo:nil repeats:YES];
     [[NSRunLoop currentRunLoop] addTimer:timer forMode:NSDefaultRunLoopMode];
     [timer fire];
@@ -121,6 +137,7 @@ static const NSInteger MaxVisibleChars = 32;
 
 - (void)applicationWillTerminate:(NSNotification *)notification
 {
+    // Save items to defaults
     NSUserDefaults * defs = [NSUserDefaults standardUserDefaults];
     [defs setObject:self.texts forKey:@"texts"];
     [defs setObject:self.times forKey:@"times"];
