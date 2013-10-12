@@ -8,6 +8,9 @@
 
 #import "ABAppDelegate.h"
 
+static const NSInteger MaxVisibleItems = 10;
+static const NSInteger MaxVisibleChars = 32;
+
 @interface ABAppDelegate ()
 
 @property (weak, nonatomic) IBOutlet NSMenu *menu;
@@ -20,16 +23,6 @@
 @end
 
 @implementation ABAppDelegate
-
-- (NSMutableArray *)texts
-{
-    return _texts ?: (_texts = [NSMutableArray array]);
-}
-
-- (NSMutableArray *)times
-{
-    return _times ?: (_times = [NSMutableArray array]);
-}
 
 - (void)menuItemSelect:(id)sender
 {
@@ -65,7 +58,8 @@
             timeStr = [NSString stringWithFormat:@"%dy",(int)(time/60/60/24/365.75)];
         else
             timeStr = @"";
-        menuItem.title = [NSString stringWithFormat:@"(%@) \"%@...\"",timeStr,[self.texts[i] substringToIndex:MIN(25,[self.texts[i] length])]];
+        
+        menuItem.title = [NSString stringWithFormat:@"(%@) \"%@%@\"",timeStr,[self.texts[i] substringToIndex:MIN(MaxVisibleChars,[self.texts[i] length])],([self.texts[i] length] <= MaxVisibleChars)?@"":@"..."];
         
         [self.menu.itemArray[i] setState:(i == self.selectedIndex) ? NSOnState : NSOffState];
     }
@@ -86,7 +80,7 @@
     [self.texts insertObject:text atIndex:0];
     [self.times insertObject:[NSDate date] atIndex:0];
     
-    if (self.menu.itemArray.count > 10+2)
+    if (self.menu.itemArray.count > MaxVisibleItems+2)
         [self.menu removeItemAtIndex:self.menu.itemArray.count-3];
     NSMenuItem * menuItem = [[NSMenuItem alloc] initWithTitle:@"" action:@selector(menuItemSelect:) keyEquivalent:@""];
     [self.menu insertItem:menuItem atIndex:0];
@@ -99,6 +93,17 @@
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
+    NSUserDefaults * defs = [NSUserDefaults standardUserDefaults];
+    self.texts = [defs objectForKey:@"texts"] ?: [NSMutableArray array];
+    self.times = [defs objectForKey:@"times"] ?: [NSMutableArray array];
+    self.selectedIndex = -1;
+    for (int i = 0; i < MIN(MaxVisibleItems,self.texts.count); i++)
+    {
+        NSMenuItem * menuItem = [[NSMenuItem alloc] initWithTitle:@"" action:@selector(menuItemSelect:) keyEquivalent:@""];
+        [self.menu insertItem:menuItem atIndex:self.menu.itemArray.count-2];
+    }
+    [self timerFire:nil];
+    
     self.statusBar = [[NSStatusBar systemStatusBar] statusItemWithLength:NSVariableStatusItemLength];
     self.statusBar.title = @"CS";
     self.statusBar.menu = self.menu;
@@ -107,6 +112,14 @@
     NSTimer * timer = [NSTimer timerWithTimeInterval:0.5 target:self selector:@selector(timerFire:) userInfo:nil repeats:YES];
     [[NSRunLoop currentRunLoop] addTimer:timer forMode:NSDefaultRunLoopMode];
     [timer fire];
+}
+
+- (void)applicationWillTerminate:(NSNotification *)notification
+{
+    NSUserDefaults * defs = [NSUserDefaults standardUserDefaults];
+    [defs setObject:self.texts forKey:@"texts"];
+    [defs setObject:self.times forKey:@"times"];
+    [defs synchronize];
 }
 
 @end
