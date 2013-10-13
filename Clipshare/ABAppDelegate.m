@@ -8,7 +8,7 @@
 
 #import "ABAppDelegate.h"
 
-static const NSInteger MaxVisibleItems = 10;
+static const NSInteger MaxVisibleItems = 9;
 static const NSInteger MaxVisibleChars = 32;
 
 #ifndef DEBUG
@@ -91,7 +91,7 @@ static const NSInteger MaxVisibleChars = 32;
     }
     
     // Remove last item until MaxVisibleItems left
-    while (self.menu.itemArray.count > MaxVisibleItems+2)
+    while (self.menu.itemArray.count >= MaxVisibleItems+2)
     {
         [self.menu removeItemAtIndex:self.menu.itemArray.count-3];
         [self.texts removeLastObject];
