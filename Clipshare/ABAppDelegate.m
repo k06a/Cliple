@@ -43,24 +43,21 @@ static const NSInteger MaxVisibleChars = 32;
         NSString * text = self.texts[i];
         NSMenuItem * menuItem = self.menu.itemArray[i];
         
+        NSDateComponents * components = [[NSCalendar autoupdatingCurrentCalendar] components:NSSecondCalendarUnit | NSMinuteCalendarUnit | NSHourCalendarUnit | NSDayCalendarUnit | NSMonthCalendarUnit | NSYearCalendarUnit fromDate:time toDate:[NSDate date] options:0];
+        
         NSString * timeStr = nil;
-        NSTimeInterval secs = MAX(0,[[NSDate date] timeIntervalSinceDate:time]);
-        if (secs < 60)
-            timeStr = [NSString stringWithFormat:@"%ds",(int)(secs)];
-        else if (secs < 60*60)
-            timeStr = [NSString stringWithFormat:@"%dm",(int)(secs/60)];
-        else if (secs < 60*60*24)
-            timeStr = [NSString stringWithFormat:@"%dh",(int)(secs/60/60)];
-        else if (secs < 60*60*24*7)
-            timeStr = [NSString stringWithFormat:@"%dd",(int)(secs/60/60/24)];
-        else if (secs < 60*60*24*365.75)
-            timeStr = [NSString stringWithFormat:@"%dw",(int)(secs/60/60/24/7)];
-        else if (secs < 60*60*24*365.75*3)
-            timeStr = [NSString stringWithFormat:@"%dM",(int)(secs/60/60/24/30.5)];
-        else if (secs < 60*60*24*365.75*100)
-            timeStr = [NSString stringWithFormat:@"%dy",(int)(secs/60/60/24/365.75)];
+        if (components.year)
+            timeStr = [NSString stringWithFormat:@"%dy",(int)components.year];
+        else if (components.month)
+            timeStr = [NSString stringWithFormat:@"%dM",(int)components.month];
+        else if (components.day)
+            timeStr = [NSString stringWithFormat:@"%dd",(int)components.day];
+        else if (components.hour)
+            timeStr = [NSString stringWithFormat:@"%dH",(int)components.hour];
+        else if (components.minute)
+            timeStr = [NSString stringWithFormat:@"%dm",(int)components.minute];
         else
-            timeStr = @"..";
+            timeStr = [NSString stringWithFormat:@"%ds",(int)components.second];
         
         menuItem.title = [NSString stringWithFormat:@"(%@) \"%@%@\"", timeStr,
                           [text substringToIndex:MIN(MaxVisibleChars,text.length)],
