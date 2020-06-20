@@ -79,6 +79,15 @@ static const NSInteger MaxVisibleChars = 32;
     {
         self.selectedIndex = MAX(0,index);
         [self updateItemTitlesAndStates];
+        if ([text hasPrefix:@"!"] && text.length > 1 && text.length < 100) {
+            NSLog(@"Checking command");
+            NSString *replace = [self replaceForCommand:[text substringFromIndex:1]];
+            if (replace.length > 0) {
+                NSLog(@"Command found");
+                [pboard clearContents];
+                [pboard setString:replace forType:NSPasteboardTypeString];
+            }
+        }
         return;
     }
     
