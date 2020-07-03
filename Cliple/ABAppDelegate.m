@@ -38,6 +38,10 @@ static const NSInteger MaxVisibleChars = 32;
 }
 
 - (void)bringItemUp:(NSInteger)index {
+    if (index == NSNotFound) {
+        return;
+    }
+
     NSMenuItem *item = [self.menu itemAtIndex:index];
     [self.menu removeItemAtIndex:index];
     [self.menu insertItem:item atIndex:0];
