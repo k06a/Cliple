@@ -1,6 +1,6 @@
 //
-//  ClipshareTests.m
-//  ClipshareTests
+//  ClipleTests.m
+//  ClipleTests
 //
 //  Created by Антон Буков on 12.10.13.
 //  Copyright (c) 2013 Codeless Solution. All rights reserved.
@@ -8,11 +8,11 @@
 
 #import <XCTest/XCTest.h>
 
-@interface ClipshareTests : XCTestCase
+@interface ClipleTests : XCTestCase
 
 @end
 
-@implementation ClipshareTests
+@implementation ClipleTests
 
 - (void)setUp
 {

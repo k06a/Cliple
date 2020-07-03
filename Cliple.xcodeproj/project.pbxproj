@@ -17,7 +17,10 @@
 		2532B8EA18092114001B6785 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2532B8E918092114001B6785 /* XCTest.framework */; };
 		2532B8EB18092114001B6785 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2532B8CA18092114001B6785 /* Cocoa.framework */; };
 		2532B8F318092114001B6785 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2532B8F118092114001B6785 /* InfoPlist.strings */; };
-		2532B8F518092114001B6785 /* ClipshareTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2532B8F418092114001B6785 /* ClipshareTests.m */; };
+		2532B8F518092114001B6785 /* ClipleTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2532B8F418092114001B6785 /* ClipleTests.m */; };
+		25AF61E224AFA80700AFE94C /* JKBigInteger.m in Sources */ = {isa = PBXBuildFile; fileRef = 25AF61DF24AFA80700AFE94C /* JKBigInteger.m */; };
+		25AF61E324AFA80700AFE94C /* JKBigDecimal.m in Sources */ = {isa = PBXBuildFile; fileRef = 25AF61E124AFA80700AFE94C /* JKBigDecimal.m */; };
+		25AF61E924AFA81A00AFE94C /* tommath.c in Sources */ = {isa = PBXBuildFile; fileRef = 25AF61E724AFA81A00AFE94C /* tommath.c */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -26,30 +29,38 @@
 			containerPortal = 2532B8BF18092114001B6785 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 2532B8C618092114001B6785;
-			remoteInfo = Clipshare;
+			remoteInfo = Cliple;
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		2532B8C718092114001B6785 /* Clipshare.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Clipshare.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		2532B8C718092114001B6785 /* Cliple.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cliple.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2532B8CA18092114001B6785 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		2532B8CD18092114001B6785 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
 		2532B8CE18092114001B6785 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		2532B8CF18092114001B6785 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
-		2532B8D218092114001B6785 /* Clipshare-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Clipshare-Info.plist"; sourceTree = "<group>"; };
+		2532B8D218092114001B6785 /* Cliple-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Cliple-Info.plist"; sourceTree = "<group>"; };
 		2532B8D418092114001B6785 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		2532B8D618092114001B6785 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		2532B8D818092114001B6785 /* Clipshare-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Clipshare-Prefix.pch"; sourceTree = "<group>"; };
+		2532B8D818092114001B6785 /* Cliple-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Cliple-Prefix.pch"; sourceTree = "<group>"; };
 		2532B8DA18092114001B6785 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = en; path = en.lproj/Credits.rtf; sourceTree = "<group>"; };
 		2532B8DC18092114001B6785 /* ABAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ABAppDelegate.h; sourceTree = "<group>"; };
 		2532B8DD18092114001B6785 /* ABAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ABAppDelegate.m; sourceTree = "<group>"; };
 		2532B8E018092114001B6785 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		2532B8E218092114001B6785 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		2532B8E818092114001B6785 /* ClipshareTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ClipshareTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		2532B8E818092114001B6785 /* ClipleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ClipleTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2532B8E918092114001B6785 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
-		2532B8F018092114001B6785 /* ClipshareTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "ClipshareTests-Info.plist"; sourceTree = "<group>"; };
+		2532B8F018092114001B6785 /* ClipleTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "ClipleTests-Info.plist"; sourceTree = "<group>"; };
 		2532B8F218092114001B6785 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		2532B8F418092114001B6785 /* ClipshareTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ClipshareTests.m; sourceTree = "<group>"; };
+		2532B8F418092114001B6785 /* ClipleTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ClipleTests.m; sourceTree = "<group>"; };
+		25AF61DE24AFA80700AFE94C /* JKBigDecimal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JKBigDecimal.h; path = JKBigInteger/JKBigDecimal.h; sourceTree = "<group>"; };
+		25AF61DF24AFA80700AFE94C /* JKBigInteger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JKBigInteger.m; path = JKBigInteger/JKBigInteger.m; sourceTree = "<group>"; };
+		25AF61E024AFA80700AFE94C /* JKBigInteger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JKBigInteger.h; path = JKBigInteger/JKBigInteger.h; sourceTree = "<group>"; };
+		25AF61E124AFA80700AFE94C /* JKBigDecimal.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JKBigDecimal.m; path = JKBigInteger/JKBigDecimal.m; sourceTree = "<group>"; };
+		25AF61E524AFA81900AFE94C /* tommath_superclass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = tommath_superclass.h; path = JKBigInteger/LibTomMath/tommath_superclass.h; sourceTree = "<group>"; };
+		25AF61E624AFA81A00AFE94C /* tommath.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = tommath.h; path = JKBigInteger/LibTomMath/tommath.h; sourceTree = "<group>"; };
+		25AF61E724AFA81A00AFE94C /* tommath.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = tommath.c; path = JKBigInteger/LibTomMath/tommath.c; sourceTree = "<group>"; };
+		25AF61E824AFA81A00AFE94C /* tommath_class.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = tommath_class.h; path = JKBigInteger/LibTomMath/tommath_class.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,8 +87,8 @@
 		2532B8BE18092114001B6785 = {
 			isa = PBXGroup;
 			children = (
-				2532B8D018092114001B6785 /* Clipshare */,
-				2532B8EE18092114001B6785 /* ClipshareTests */,
+				2532B8D018092114001B6785 /* Cliple */,
+				2532B8EE18092114001B6785 /* ClipleTests */,
 				2532B8C918092114001B6785 /* Frameworks */,
 				2532B8C818092114001B6785 /* Products */,
 			);
@@ -86,8 +97,8 @@
 		2532B8C818092114001B6785 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				2532B8C718092114001B6785 /* Clipshare.app */,
-				2532B8E818092114001B6785 /* ClipshareTests.xctest */,
+				2532B8C718092114001B6785 /* Cliple.app */,
+				2532B8E818092114001B6785 /* ClipleTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -112,54 +123,78 @@
 			name = "Other Frameworks";
 			sourceTree = "<group>";
 		};
-		2532B8D018092114001B6785 /* Clipshare */ = {
+		2532B8D018092114001B6785 /* Cliple */ = {
 			isa = PBXGroup;
 			children = (
+				25AF61DD24AFA7F300AFE94C /* JKBigInteger */,
 				2532B8DC18092114001B6785 /* ABAppDelegate.h */,
 				2532B8DD18092114001B6785 /* ABAppDelegate.m */,
 				2532B8DF18092114001B6785 /* MainMenu.xib */,
 				2532B8E218092114001B6785 /* Images.xcassets */,
 				2532B8D118092114001B6785 /* Supporting Files */,
 			);
-			path = Clipshare;
+			path = Cliple;
 			sourceTree = "<group>";
 		};
 		2532B8D118092114001B6785 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				2532B8D218092114001B6785 /* Clipshare-Info.plist */,
+				2532B8D218092114001B6785 /* Cliple-Info.plist */,
 				2532B8D318092114001B6785 /* InfoPlist.strings */,
 				2532B8D618092114001B6785 /* main.m */,
-				2532B8D818092114001B6785 /* Clipshare-Prefix.pch */,
+				2532B8D818092114001B6785 /* Cliple-Prefix.pch */,
 				2532B8D918092114001B6785 /* Credits.rtf */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		2532B8EE18092114001B6785 /* ClipshareTests */ = {
+		2532B8EE18092114001B6785 /* ClipleTests */ = {
 			isa = PBXGroup;
 			children = (
-				2532B8F418092114001B6785 /* ClipshareTests.m */,
+				2532B8F418092114001B6785 /* ClipleTests.m */,
 				2532B8EF18092114001B6785 /* Supporting Files */,
 			);
-			path = ClipshareTests;
+			path = ClipleTests;
 			sourceTree = "<group>";
 		};
 		2532B8EF18092114001B6785 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				2532B8F018092114001B6785 /* ClipshareTests-Info.plist */,
+				2532B8F018092114001B6785 /* ClipleTests-Info.plist */,
 				2532B8F118092114001B6785 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		25AF61DD24AFA7F300AFE94C /* JKBigInteger */ = {
+			isa = PBXGroup;
+			children = (
+				25AF61E424AFA80C00AFE94C /* LibTomMath */,
+				25AF61DE24AFA80700AFE94C /* JKBigDecimal.h */,
+				25AF61E124AFA80700AFE94C /* JKBigDecimal.m */,
+				25AF61E024AFA80700AFE94C /* JKBigInteger.h */,
+				25AF61DF24AFA80700AFE94C /* JKBigInteger.m */,
+			);
+			name = JKBigInteger;
+			sourceTree = "<group>";
+		};
+		25AF61E424AFA80C00AFE94C /* LibTomMath */ = {
+			isa = PBXGroup;
+			children = (
+				25AF61E824AFA81A00AFE94C /* tommath_class.h */,
+				25AF61E524AFA81900AFE94C /* tommath_superclass.h */,
+				25AF61E724AFA81A00AFE94C /* tommath.c */,
+				25AF61E624AFA81A00AFE94C /* tommath.h */,
+			);
+			name = LibTomMath;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		2532B8C618092114001B6785 /* Clipshare */ = {
+		2532B8C618092114001B6785 /* Cliple */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 2532B8F818092114001B6785 /* Build configuration list for PBXNativeTarget "Clipshare" */;
+			buildConfigurationList = 2532B8F818092114001B6785 /* Build configuration list for PBXNativeTarget "Cliple" */;
 			buildPhases = (
 				2532B8C318092114001B6785 /* Sources */,
 				2532B8C418092114001B6785 /* Frameworks */,
@@ -169,14 +204,14 @@
 			);
 			dependencies = (
 			);
-			name = Clipshare;
-			productName = Clipshare;
-			productReference = 2532B8C718092114001B6785 /* Clipshare.app */;
+			name = Cliple;
+			productName = Cliple;
+			productReference = 2532B8C718092114001B6785 /* Cliple.app */;
 			productType = "com.apple.product-type.application";
 		};
-		2532B8E718092114001B6785 /* ClipshareTests */ = {
+		2532B8E718092114001B6785 /* ClipleTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 2532B8FB18092114001B6785 /* Build configuration list for PBXNativeTarget "ClipshareTests" */;
+			buildConfigurationList = 2532B8FB18092114001B6785 /* Build configuration list for PBXNativeTarget "ClipleTests" */;
 			buildPhases = (
 				2532B8E418092114001B6785 /* Sources */,
 				2532B8E518092114001B6785 /* Frameworks */,
@@ -187,9 +222,9 @@
 			dependencies = (
 				2532B8ED18092114001B6785 /* PBXTargetDependency */,
 			);
-			name = ClipshareTests;
-			productName = ClipshareTests;
-			productReference = 2532B8E818092114001B6785 /* ClipshareTests.xctest */;
+			name = ClipleTests;
+			productName = ClipleTests;
+			productReference = 2532B8E818092114001B6785 /* ClipleTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -207,7 +242,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 2532B8C218092114001B6785 /* Build configuration list for PBXProject "Clipshare" */;
+			buildConfigurationList = 2532B8C218092114001B6785 /* Build configuration list for PBXProject "Cliple" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -220,8 +255,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				2532B8C618092114001B6785 /* Clipshare */,
-				2532B8E718092114001B6785 /* ClipshareTests */,
+				2532B8C618092114001B6785 /* Cliple */,
+				2532B8E718092114001B6785 /* ClipleTests */,
 			);
 		};
 /* End PBXProject section */
@@ -253,8 +288,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				25AF61E924AFA81A00AFE94C /* tommath.c in Sources */,
 				2532B8D718092114001B6785 /* main.m in Sources */,
+				25AF61E224AFA80700AFE94C /* JKBigInteger.m in Sources */,
 				2532B8DE18092114001B6785 /* ABAppDelegate.m in Sources */,
+				25AF61E324AFA80700AFE94C /* JKBigDecimal.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -262,7 +300,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2532B8F518092114001B6785 /* ClipshareTests.m in Sources */,
+				2532B8F518092114001B6785 /* ClipleTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -271,7 +309,7 @@
 /* Begin PBXTargetDependency section */
 		2532B8ED18092114001B6785 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 2532B8C618092114001B6785 /* Clipshare */;
+			target = 2532B8C618092114001B6785 /* Cliple */;
 			targetProxy = 2532B8EC18092114001B6785 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -416,8 +454,8 @@
 				CODE_SIGN_IDENTITY = "-";
 				COMBINE_HIDPI_IMAGES = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Clipshare/Clipshare-Prefix.pch";
-				INFOPLIST_FILE = "Clipshare/Clipshare-Info.plist";
+				GCC_PREFIX_HEADER = "Cliple/Cliple-Prefix.pch";
+				INFOPLIST_FILE = "Cliple/Cliple-Info.plist";
 				MACOSX_DEPLOYMENT_TARGET = 10.7;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.codeless.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -432,8 +470,8 @@
 				CODE_SIGN_IDENTITY = "-";
 				COMBINE_HIDPI_IMAGES = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Clipshare/Clipshare-Prefix.pch";
-				INFOPLIST_FILE = "Clipshare/Clipshare-Info.plist";
+				GCC_PREFIX_HEADER = "Cliple/Cliple-Prefix.pch";
+				INFOPLIST_FILE = "Cliple/Cliple-Info.plist";
 				MACOSX_DEPLOYMENT_TARGET = 10.7;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.codeless.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -444,19 +482,19 @@
 		2532B8FC18092114001B6785 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Clipshare.app/Contents/MacOS/Clipshare";
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Cliple.app/Contents/MacOS/Cliple";
 				COMBINE_HIDPI_IMAGES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(DEVELOPER_FRAMEWORKS_DIR)",
 					"$(inherited)",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Clipshare/Clipshare-Prefix.pch";
+				GCC_PREFIX_HEADER = "Cliple/Cliple-Prefix.pch";
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
 				);
-				INFOPLIST_FILE = "ClipshareTests/ClipshareTests-Info.plist";
+				INFOPLIST_FILE = "ClipleTests/ClipleTests-Info.plist";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.codeless.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";
@@ -467,15 +505,15 @@
 		2532B8FD18092114001B6785 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Clipshare.app/Contents/MacOS/Clipshare";
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Cliple.app/Contents/MacOS/Cliple";
 				COMBINE_HIDPI_IMAGES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(DEVELOPER_FRAMEWORKS_DIR)",
 					"$(inherited)",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Clipshare/Clipshare-Prefix.pch";
-				INFOPLIST_FILE = "ClipshareTests/ClipshareTests-Info.plist";
+				GCC_PREFIX_HEADER = "Cliple/Cliple-Prefix.pch";
+				INFOPLIST_FILE = "ClipleTests/ClipleTests-Info.plist";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.codeless.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";
@@ -486,7 +524,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		2532B8C218092114001B6785 /* Build configuration list for PBXProject "Clipshare" */ = {
+		2532B8C218092114001B6785 /* Build configuration list for PBXProject "Cliple" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				2532B8F618092114001B6785 /* Debug */,
@@ -495,7 +533,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		2532B8F818092114001B6785 /* Build configuration list for PBXNativeTarget "Clipshare" */ = {
+		2532B8F818092114001B6785 /* Build configuration list for PBXNativeTarget "Cliple" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				2532B8F918092114001B6785 /* Debug */,
@@ -504,7 +542,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		2532B8FB18092114001B6785 /* Build configuration list for PBXNativeTarget "ClipshareTests" */ = {
+		2532B8FB18092114001B6785 /* Build configuration list for PBXNativeTarget "ClipleTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				2532B8FC18092114001B6785 /* Debug */,
