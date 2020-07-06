@@ -28,6 +28,12 @@ static const NSInteger MaxVisibleChars = 32;
 - (void)menuItemSelect:(id)sender {
     NSInteger index = [self.menu.itemArray indexOfObject:sender];
     
+    if ([NSEvent modifierFlags] & NSCommandKeyMask) {
+        [self.menu removeItemAtIndex:index];
+        [self.texts removeObjectAtIndex:index];
+        return;
+    }
+    
     NSPasteboard * pboard = [NSPasteboard generalPasteboard];
     [pboard clearContents];
     NSPasteboardItem * pboardItem = [[NSPasteboardItem alloc] init];
@@ -159,8 +165,7 @@ static const NSInteger MaxVisibleChars = 32;
     [timer fire];
 }
 
-- (void)applicationWillTerminate:(NSNotification *)notification
-{
+- (void)applicationWillTerminate:(NSNotification *)notification {
     // Save items to defaults
     NSUserDefaults * defs = [NSUserDefaults standardUserDefaults];
     [defs setObject:self.texts forKey:@"texts"];
